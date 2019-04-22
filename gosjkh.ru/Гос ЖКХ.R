@@ -1,4 +1,4 @@
-##„H„p„s„‚„…„w„p„u„} "„…„|„…„‰„Š„u„~„~„…„" „r„u„‚„ƒ„y„ „†„…„~„{„ˆ„y„y 'html_table' „y„x „„p„{„u„„„p 'rvest', „{„€„„„€„‚„p„‘ „„€„x„r„€„|„‘„u„„ „r„„q„y„‚„p„„„Ž „„„y„ „{„€„|„€„~„€„{ „r „ƒ„€„‡„‚„p„~„‘„u„}„€„z „„„p„q„|„y„ˆ„u
+##Ð—Ð°Ð³Ñ€ÑƒÐ¶Ð°ÐµÐ¼ "ÑƒÐ»ÑƒÑ‡ÑˆÐµÐ½Ð½ÑƒÑŽ" Ð²ÐµÑ€ÑÐ¸ÑŽ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸ 'html_table' Ð¸Ð· Ð¿Ð°ÐºÐµÑ‚Ð° 'rvest', ÐºÐ¾Ñ‚Ð¾Ñ€Ð°Ñ Ð¿Ð¾Ð·Ð²Ð¾Ð»ÑÐµÑ‚ Ð²Ñ‹Ð±Ð¸Ñ€Ð°Ñ‚ÑŒ Ñ‚Ð¸Ð¿ ÐºÐ¾Ð»Ð¾Ð½Ð¾Ðº Ð² ÑÐ¾Ñ…Ñ€Ð°Ð½ÑÐµÐ¼Ð¾Ð¹ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ðµ
 load('html_table_advanced.RData')
 
 gosjkh <- function(houses) {
@@ -6,30 +6,30 @@ gosjkh <- function(houses) {
   require(openxlsx)
   require(tidyverse)
   
-#„X„y„„„p„u„} „s„|„p„r„~„…„ „ƒ„„„‚„p„~„y„ˆ„…, „ƒ„€„q„y„‚„p„u„} „ƒ„„y„ƒ„€„{ „r„ƒ„u„‡ „ƒ„ƒ„„|„€„{, 
-#„r„u„t„…„‹„y„‡ „~„p „ƒ„„„‚„p„~„y„ˆ„ „€„„„t„u„|„Ž„~„„‡ „s„€„‚„€„t„€„r „‚„u„s„y„€„~„p, „s„t„u „ƒ„€„t„u„‚„w„y„„„ƒ„‘ „y„~„†„€„‚„}„p„ˆ„y„‘ „€ „~„p„‡„€„t„‘„‹„y„ƒ„‘ „r „~„y„‡ „M„K„D 
+#Ð§Ð¸Ñ‚Ð°ÐµÐ¼ Ð³Ð»Ð°Ð²Ð½ÑƒÑŽ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ñƒ, ÑÐ¾Ð±Ð¸Ñ€Ð°ÐµÐ¼ ÑÐ¿Ð¸ÑÐ¾Ðº Ð²ÑÐµÑ… ÑÑÑ‹Ð»Ð¾Ðº, 
+#Ð²ÐµÐ´ÑƒÑ‰Ð¸Ñ… Ð½Ð° ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ñ‹ Ð¾Ñ‚Ð´ÐµÐ»ÑŒÐ½Ñ‹Ñ… Ð³Ð¾Ñ€Ð¾Ð´Ð¾Ð² Ñ€ÐµÐ³Ð¸Ð¾Ð½Ð°, Ð³Ð´Ðµ ÑÐ¾Ð´ÐµÑ€Ð¶Ð¸Ñ‚ÑÑ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ñ Ð¾ Ð½Ð°Ñ…Ð¾Ð´ÑÑ‰Ð¸ÑÑ Ð² Ð½Ð¸Ñ… ÐœÐšÐ” 
 houses_site <- read_html(houses)
 info_nod <- html_nodes(houses_site, '.shadow-effect-2')
 info_text <- html_text(info_nod, trim = T)
-##„B„„r„€„t „y„~„†„€„‚„}„p„ˆ„y„y „€„q „€„q„‹„u„z „„|„€„‹„p„t„y „y „‰„y„ƒ„|„u „t„€„}„€„r „‚„u„s„y„€„~„p, „€„„„‚„p„w„u„~„~„„‡ „r „q„p„x„u 
+##Ð’Ñ‹Ð²Ð¾Ð´ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ð¸ Ð¾Ð± Ð¾Ð±Ñ‰ÐµÐ¹ Ð¿Ð»Ð¾Ñ‰Ð°Ð´Ð¸ Ð¸ Ñ‡Ð¸ÑÐ»Ðµ Ð´Ð¾Ð¼Ð¾Ð² Ñ€ÐµÐ³Ð¸Ð¾Ð½Ð°, Ð¾Ñ‚Ñ€Ð°Ð¶ÐµÐ½Ð½Ñ‹Ñ… Ð² Ð±Ð°Ð·Ðµ 
 print(info_text)
 houses_nodes <- html_nodes(houses_site, '.list-unstyled a')
 houses_attr <- combine(html_attrs(houses_nodes))
 all_links <- paste('http://gosjkh.ru', houses_attr, sep = "")
 
-#„P„€„ƒ„|„u„t„€„r„p„„„u„|„Ž„~„€ „„‚„€„‡„€„t„y„} „„€ „{„p„w„t„€„z „ƒ„ƒ„„|„{„u „y„x „„€„|„…„‰„y„r„Š„u„s„€„ƒ„‘ „ƒ„„y„ƒ„{„p
+#ÐŸÐ¾ÑÐ»ÐµÐ´Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÐ½Ð¾ Ð¿Ñ€Ð¾Ñ…Ð¾Ð´Ð¸Ð¼ Ð¿Ð¾ ÐºÐ°Ð¶Ð´Ð¾Ð¹ ÑÑÑ‹Ð»ÐºÐµ Ð¸Ð· Ð¿Ð¾Ð»ÑƒÑ‡Ð¸Ð²ÑˆÐµÐ³Ð¾ÑÑ ÑÐ¿Ð¸ÑÐºÐ°
 function_result <- lapply(all_links, function(x) {
   page <- read_html(x)
   info_text_2 <- page %>% html_nodes('.shadow-effect-2') %>% html_text(trim = T)
-##„B„„r„€„t „y„~„†„€„‚„}„p„ˆ„y„y „€„q „€„q„‹„u„z „„|„€„‹„p„t„y „y „‰„y„ƒ„|„u „t„€„}„€„r „{„€„~„{„‚„u„„„~„€„s„€ „s„€„‚„€„t„p, „€„„„‚„p„w„u„~„~„„‡ „r „q„p„x„u
+##Ð’Ñ‹Ð²Ð¾Ð´ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ð¸ Ð¾Ð± Ð¾Ð±Ñ‰ÐµÐ¹ Ð¿Ð»Ð¾Ñ‰Ð°Ð´Ð¸ Ð¸ Ñ‡Ð¸ÑÐ»Ðµ Ð´Ð¾Ð¼Ð¾Ð² ÐºÐ¾Ð½ÐºÑ€ÐµÑ‚Ð½Ð¾Ð³Ð¾ Ð³Ð¾Ñ€Ð¾Ð´Ð°, Ð¾Ñ‚Ñ€Ð°Ð¶ÐµÐ½Ð½Ñ‹Ñ… Ð² Ð±Ð°Ð·Ðµ
   print(info_text_2)
   last_page_nod <- page %>% html_nodes("ul")
-##„B „x„p„r„ƒ„}„€„ƒ„„„y „€„„ „„„€„s„€, „ƒ„{„€„|„Ž„{„€ „ƒ„„„‚„p„~„y„ˆ „x„p„~„y„}„p„u„„ „ƒ„„y„ƒ„€„{ „t„€„}„€„r „r „s„€„‚„€„t„u („€„t„~„… „y„|„y „q„€„|„Ž„Š„u), „ƒ„‚„p„x„… „ƒ„{„p„‰„y„r„p„u„} „„„p„q„|„y„ˆ„…,
-##„y„|„y „ƒ„€„x„t„p„u„} „u„‹„u „€„t„y„~ „ƒ„„y„ƒ„€„{, „s„t„u „q„…„t„…„„ „ƒ„€„t„u„‚„w„p„„„Ž„ƒ„‘ „ƒ„ƒ„„|„{„y „~„p „r„ƒ„u „„€„t„ƒ„„„‚„p„~„y„ˆ„
+##Ð’ Ð·Ð°Ð²ÑÐ¼Ð¾ÑÑ‚Ð¸ Ð¾Ñ‚ Ñ‚Ð¾Ð³Ð¾, ÑÐºÐ¾Ð»ÑŒÐºÐ¾ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ† Ð·Ð°Ð½Ð¸Ð¼Ð°ÐµÑ‚ ÑÐ¿Ð¸ÑÐ¾Ðº Ð´Ð¾Ð¼Ð¾Ð² Ð² Ð³Ð¾Ñ€Ð¾Ð´Ðµ (Ð¾Ð´Ð½Ñƒ Ð¸Ð»Ð¸ Ð±Ð¾Ð»ÑŒÑˆÐµ), ÑÑ€Ð°Ð·Ñƒ ÑÐºÐ°Ñ‡Ð¸Ð²Ð°ÐµÐ¼ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñƒ,
+##Ð¸Ð»Ð¸ ÑÐ¾Ð·Ð´Ð°ÐµÐ¼ ÐµÑ‰Ðµ Ð¾Ð´Ð¸Ð½ ÑÐ¿Ð¸ÑÐ¾Ðº, Ð³Ð´Ðµ Ð±ÑƒÐ´ÑƒÑ‚ ÑÐ¾Ð´ÐµÑ€Ð¶Ð°Ñ‚ÑŒÑÑ ÑÑÑ‹Ð»ÐºÐ¸ Ð½Ð° Ð²ÑÐµ Ð¿Ð¾Ð´ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ñ‹
   if (length(xml_children(last_page_nod[[length(last_page_nod)]])) < 1) {
     city_node <- html_nodes(page, 'body > div.wrapper > div.container.content')
     city_node <- xml_find_first(city_node, './/table')
-##„H„t„u„ƒ„Ž „x„p„t„u„z„ƒ„„„r„…„u„„„ƒ„‘ „†„…„~„{„ˆ„y„‘ 'html_table' „y„x „†„p„z„|„p 'html_table_advanced'
+##Ð—Ð´ÐµÑÑŒ Ð·Ð°Ð´ÐµÐ¹ÑÑ‚Ð²ÑƒÐµÑ‚ÑÑ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ 'html_table' Ð¸Ð· Ñ„Ð°Ð¹Ð»Ð° 'html_table_advanced'
     city_data <- html_table(city_node, header = T, col_classes = list(`1`='integer',
                                                                     `2`='character',
                                                                     `3`='character',
@@ -49,14 +49,14 @@ function_result <- lapply(all_links, function(x) {
                           html_nodes('body > div.wrapper > div.container.content') %>% 
                           xml_find_first('.//table') %>% 
                           html_table(header = T, col_classes=list(`1`='integer',`2`='character',`3`='character',`4`='character',`5`='character',`6`='character',`7`='character')))
-##„O„q„Œ„u„t„y„~„‘„u„} „ƒ„€„q„‚„p„~„~„„u „y„x „~„u„ƒ„{„€„|„Ž„{„y„‡ „„€„t„ƒ„„„‚„p„~„y„ˆ „ƒ„„y„ƒ„{„y „r „€„t„y„~ „t„p„„„p„†„‚„u„z„}    
+##ÐžÐ±ÑŠÐµÐ´Ð¸Ð½ÑÐµÐ¼ ÑÐ¾Ð±Ñ€Ð°Ð½Ð½Ñ‹Ðµ Ð¸Ð· Ð½ÐµÑÐºÐ¾Ð»ÑŒÐºÐ¸Ñ… Ð¿Ð¾Ð´ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ† ÑÐ¿Ð¸ÑÐºÐ¸ Ð² Ð¾Ð´Ð¸Ð½ Ð´Ð°Ñ‚Ð°Ñ„Ñ€ÐµÐ¹Ð¼    
     city_data <- do.call(bind_rows, city_data)
     return(city_data)  
   }
 })
 
-#„O„q„Œ„u„t„y„~„‘„u„} „‚„u„x„…„|„Ž„„„p„„ „r„„„€„|„~„u„~„y„‘ „†„…„~„{„ˆ„y„y „r „€„t„y„~ „t„p„„„p„†„‚„u„z„}
-#„y „ƒ„€„‡„‚„p„~„‘„u„} „u„s„€ „{„p„{ „s„|„€„q„p„|„Ž„~„…„ „„u„‚„u„}„u„~„~„…„ „t„|„‘ „„€„ƒ„|„u„t„…„„‹„u„s„€ „p„~„p„|„y„x„p + „x„p„„y„ƒ„„r„p„u„} „r xlsx
+#ÐžÐ±ÑŠÐµÐ´Ð¸Ð½ÑÐµÐ¼ Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ñ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¸ Ð² Ð¾Ð´Ð¸Ð½ Ð´Ð°Ñ‚Ð°Ñ„Ñ€ÐµÐ¹Ð¼
+#Ð¸ ÑÐ¾Ñ…Ñ€Ð°Ð½ÑÐµÐ¼ ÐµÐ³Ð¾ ÐºÐ°Ðº Ð³Ð»Ð¾Ð±Ð°Ð»ÑŒÐ½ÑƒÑŽ Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½ÑƒÑŽ Ð´Ð»Ñ Ð¿Ð¾ÑÐ»ÐµÐ´ÑƒÑŽÑ‰ÐµÐ³Ð¾ Ð°Ð½Ð°Ð»Ð¸Ð·Ð° + Ð·Ð°Ð¿Ð¸ÑÑ‹Ð²Ð°ÐµÐ¼ Ð² xlsx
 out <<- as.data.frame(do.call(rbind,function_result))
-write.xlsx(out,'„C„€„ƒ „G„K„V.xlsx')
+write.xlsx(out,'Ð“Ð¾Ñ Ð–ÐšÐ¥.xlsx')
 }
