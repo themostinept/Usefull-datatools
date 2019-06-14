@@ -1,7 +1,7 @@
 ##First transport##
-years <- c(2019, 2020, 2022)
-garbage_density_container <- 0.18173
-garbage_sealing_coeff <- 1.5
+years <- c(2019, 2023)
+garbage_density_container <- 0.17284
+garbage_sealing_coeff <- 4
 truck_speed <- 14
 truck_unload_time <- 12
 container_load_time <- 1
@@ -34,8 +34,8 @@ unchange_yearly_truck_capacity <- (truck_volume * garbage_sealing_coeff * garbag
 cls_comp <- cls %>% 
   filter(Год %in% years) %>% 
   group_by(Год, Название.района, Наименование.ОИ) %>% 
-  summarise(mass = sum(Масса.образованных.отходов),
-            distance = weighted.mean(Пробег.первого.звена, Масса.образованных.отходов)) %>% 
+  summarise(mass = sum(Масса.образованных.отходов..тыс..тонн),
+            distance = weighted.mean(Пробег.первого.звена..км, Масса.образованных.отходов..тыс..тонн)) %>% 
   mutate(trip_duartion = (distance / truck_speed) + unchange_object_load_reload_time, 
          trips_per_day = if_else(floor(working_time / trip_duartion) < 1, 1, floor(working_time / trip_duartion)), 
          mass_transported = trips_per_day * unchange_yearly_truck_capacity,
@@ -71,10 +71,10 @@ direct <- list.files()[grep('directions', list.files())]
 direct <- read.csv(direct, sep = ";",  dec = ",", stringsAsFactors = F)
   
 direct_comp <- direct %>% 
-  filter(Год %in% years & Тип.ОИ %in% c('assortment', 'recast', 'transfer')) %>% 
+  filter(Год %in% years & Тип.ОИ %in% c('Сортировка', 'recast', 'Перегрузка')) %>% 
   group_by(Год, Зона.РО.ОИ, Тип.ОИ, Наименование.ОИ, Тип.принимающего.ОИ, Наименование.принимающего.ОИ) %>% 
-  summarise(mass = sum(Масса.отходов..отправленных.на.принимающий.ОИ),
-            distance = sum(Расстояние.до.принимающего.ОИ)) %>% 
+  summarise(mass = sum(Масса.отходов..отправленных.на.принимающий.ОИ..тыс..тонн),
+            distance = sum(Расстояние.до.принимающего.ОИ..км)) %>% 
   filter(is.na(mass) == F) %>% 
   mutate(distance = if_else(distance < 0.01, 0.1, distance),
          trip_duration = (distance * (2 / truck_2_speed)) + load_unload_time_2,
